@@ -32,14 +32,19 @@ while game_is_on:
     screen.update()
     ball.move()
 
+    # TODO: Detect collision with wall and bounce
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        #needs to bounce
+        ball.bounce()
+    
+
 
 screen.exitonclick()
 
 
 
+    
 
-# TODO: Create the ball and make it move
-# TODO: Detect collision with wall and bounce
 # TODO: Detect collisions with the the paddle
 # TODO: Detect when the ball goes out of bounds
 # TODO: Keep Score
