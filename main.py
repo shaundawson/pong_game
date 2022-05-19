@@ -35,16 +35,19 @@ while game_is_on:
     # TODO: Detect collision with wall and bounce
     if ball.ycor() > 280 or ball.ycor() < -280:
         #needs to bounce
-        ball.bounce()
+        ball.bounce_y()
+
+    # TODO: Detect collision with paddle
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() > -320:
+       ball.bounce_x()
     
-
-
+        
 screen.exitonclick()
 
 
 
     
 
-# TODO: Detect collisions with the the paddle
+
 # TODO: Detect when the ball goes out of bounds
 # TODO: Keep Score
