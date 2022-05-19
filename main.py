@@ -1,4 +1,5 @@
 from turtle import Screen
+from paddle import Paddle
 
 
 # TODO: Set up the main screen
@@ -9,11 +10,29 @@ screen.title("Pong")
 screen.tracer(0)
 
 
-screen.exitonclick()
+r_paddle = Paddle((350, 0))
+# TODO: Create another paddle
+l_paddle = Paddle((-350, 0))
 
 
 # TODO: Create paddle that responds to key presses
-# TODO: Create another paddle
+screen.listen()
+screen.onkey(r_paddle.up,"Up")
+screen.onkey(r_paddle.down,"Down")
+screen.onkey(l_paddle.up,"w")
+screen.onkey(l_paddle.down,"s")
+
+
+game_is_on = True
+while game_is_on:
+    screen.update()
+
+
+screen.exitonclick()
+
+
+
+
 # TODO: Create the ball and make it move
 # TODO: Detect collision with wall and bounce
 # TODO: Detect collisions with the the paddle
