@@ -1,15 +1,16 @@
 from turtle import Turtle
 
-# TODO: Create the ball and make it move
-class Ball(Turtle): 
+
+class Ball(Turtle):
+
     def __init__(self):
         super().__init__()
-        self.penup()
-        self.shape("circle")
-        self.shapesize(stretch_len=0.5, stretch_wid =0.5 )
         self.color("white")
-        self.x_move = 10
-        self.y_move = 10
+        self.shape("circle")
+        self.penup()
+        self.x_move = 3
+        self.y_move = 3
+        self.move_speed = 0.1
 
     def move(self):
         new_x = self.xcor() + self.x_move
@@ -21,11 +22,9 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_move *= -1
+        self.move_speed *= 0.9
 
     def reset_position(self):
-        self.goto(0,0)
+        self.goto(0, 0)
+        self.move_speed = 0.1
         self.bounce_x()
-
-        
-
-    
